@@ -12,8 +12,8 @@ d.setUTCSeconds(utcSeconds);
 
 ### Initialize repo based on beautiful jekyll
 
+```
 REPO_NAME="aaa"
-
 
 curl -u "ourgrouplab:$GITHUB_PAT" https://api.github.com/user/repos -d '{"name":"'"$REPO_NAME"'"}'
 
@@ -28,12 +28,13 @@ echo -e "url: \"http://ourgrouplab.github.io/$REPO_NAME\"\nbaseurl: \"/$REPO_NAM
 git add _config.yml && \
 git commit -m "Set initial default settings" && \
 git push origin gh-pages
-
-
+```
 
 ### Delete repo
+
+```
 curl -i -u "ourgrouplab:$GITHUB_PAT" https://api.github.com/repos/ourgrouplab/"$REPO_NAME" -X DELETE && \
 rm -rf ~/ourgrouplab/$REPO_NAME 
+```
 
 Maybe move the folder to some other "trash" folder instead of removing it entirely
-
